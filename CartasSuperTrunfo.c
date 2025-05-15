@@ -118,7 +118,7 @@ int main() {
     printf("Super poder: %.2f\n", superPoder2);
 
     //Comparando as cartas
-    printf("Hora de comparar.\n");
+   /*printf("Hora de comparar.\n");
     printf("Valor 0 = Vitória Carta2; Valor 1 = Vitória Carta1.\n");
     printf("Obs: No item Densidade populacional valor = 0 a vitória é da Carta1.\n");
     printf("População: %d.\n", populacao1 > populacao2);
@@ -127,7 +127,13 @@ int main() {
     printf("Pontos turísticos: %d.\n", pontos_turisticos1 > pontos_turisticos2);
     printf("Densidade populacional: %d.\n", densidade_pop1 > densidade_pop2);
     printf("Renda Per Capita: %d.\n", renda_percapita1 > renda_percapita2);
-    printf("Super Poder: %d.\n", superPoder1 > superPoder2);
+    printf("Super Poder: %d.\n", superPoder1 > superPoder2);*/
+
+    if(populacao1 > populacao2){
+        printf("A Carta1 venceu.\n");
+    } else {
+        printf("A Carta2 venceu.\n");
+    }
 
     return 0;
 }
