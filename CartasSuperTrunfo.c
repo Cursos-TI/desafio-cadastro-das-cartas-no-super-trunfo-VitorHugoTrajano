@@ -23,6 +23,8 @@ int main() {
     int renda_percapita2 = 0;
     float superPoder2 = 0;
 
+    int opcao1, opcao2;
+
     //Saudação
     printf("Olá a todos, vamos começar a construir o nosso jogo Super Trunfo.\n");
     printf("Vamos começar cadastrando os atributos de duas cartas ok?\n");
@@ -118,21 +120,89 @@ int main() {
     printf("Super poder: %.2f\n", superPoder2);
 
     //Comparando as cartas
-   /*printf("Hora de comparar.\n");
-    printf("Valor 0 = Vitória Carta2; Valor 1 = Vitória Carta1.\n");
-    printf("Obs: No item Densidade populacional valor = 0 a vitória é da Carta1.\n");
-    printf("População: %d.\n", populacao1 > populacao2);
-    printf("Área: %d.\n", area1 > area2);
-    printf("PIB: %d.\n", pib1 > pib2);
-    printf("Pontos turísticos: %d.\n", pontos_turisticos1 > pontos_turisticos2);
-    printf("Densidade populacional: %d.\n", densidade_pop1 > densidade_pop2);
-    printf("Renda Per Capita: %d.\n", renda_percapita1 > renda_percapita2);
-    printf("Super Poder: %d.\n", superPoder1 > superPoder2);*/
+    printf("Selecione dois atributos para comparação.\n");
+    printf("1. População\n");
+    printf("2. Área.\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turísticos\n");
+    printf("5. Densidade demográfica\n");
+    printf("Atributo: ");
+    scanf("%d", &opcao1);
+    printf("Atributo: ");
+    scanf("%d", &opcao2);
 
-    if(populacao1 > populacao2){
-        printf("A Carta1 venceu.\n");
+    if(opcao1 == 1) {
+        printf("Primeiro atributo seleciondao: População.\n");
+        if(populacao1 > populacao2) {
+            printf("Vitória da Carta1.\n");
+        } else if(populacao2 > populacao1) {
+            printf("Vitória da Carta2.\n");
+        }
+    } else if (opcao1 == 2) {
+        printf("Primeiro atributo selecionado: Área.\n");
+        if(area1 > area2 ) {
+            printf("Vitória da Carta1.\n");
+        } else if(area2 > area1) {
+            printf("Vitória da Carta2.\n");
+        }    
+    } else if (opcao1 == 3) {
+        printf("Primeiro atributo selecionado: PIB.\n");
+        if(pib1 > pib2) {
+            printf("Vitória da Carta1.\n");
+        } else if(pib2 > pib1) {
+            printf("Vitória da Carta2.\n");
+        }
+    } else if(opcao1 == 4) {
+        printf("Primeiro atributo selecionado: Pontos Turísticos.\n");
+        if(pontos_turisticos1 > pontos_turisticos2) {
+            printf("Vitória da Carta1.\n");
+        } else if (pontos_turisticos2 > pontos_turisticos1) {
+            printf("Vitória da Carta2.\n");
+        }
     } else {
-        printf("A Carta2 venceu.\n");
+        printf("Primeiro atributo selecionado: Densidade demográfica.\n");
+        if(densidade_pop1 > densidade_pop2) {
+            printf("Vitória da Carta1.\n");
+        } else if (densidade_pop2 > densidade_pop1) {
+            printf("Vitória da Carta2.\n");
+        }
+    }
+
+    if(opcao2 == 1 ) {
+        printf("Segundo atributo selecionado: População.\n");
+        if(populacao2 > populacao1) {
+            printf("Vitória da Carta2.\n");
+        } else {
+            printf("Vitória da Carta1.\n");
+        }
+    } else if(opcao2 == 2) {
+        printf("Segundo atributo selecionado: Área.\n");
+       if(area2 > area1) {
+            printf("Vitória da Carta2.\n");
+       } else {
+        printf("Vitória da Carta1.\n");
+       }
+    }else if(opcao2 == 3) {
+        printf("Segundo atributo selecionado: PIB.\n");
+        if(pib2 > pib1) {
+            printf("Vitória da Carta2.\n");
+        } else {
+            printf("Vitória da Carta1.\n");
+        }
+    }else if(opcao2 == 4) {
+        printf("Segundo atributo selecionado: Pontos Turísticos.\n");
+        if(pontos_turisticos2 > pontos_turisticos1) {
+            printf("Vitória da Carta2.\n");
+        }else {
+            printf("Vitória da Carta1.\n");
+        }   
+    }else {
+        printf("Segundo atributo selecionado: Densidade Demográfica.\n");
+        if(densidade_pop2 > densidade_pop1) {
+            printf("Vitória da Carta2.\n");
+        }else {
+            printf("Vitória da Carta1.\n");
+        }
     }
 
     return 0;
