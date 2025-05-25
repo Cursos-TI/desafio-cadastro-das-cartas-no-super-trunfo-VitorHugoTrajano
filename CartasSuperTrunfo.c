@@ -4,25 +4,18 @@ int main() {
     //Carta 1
     char codigo1[5] = "A01";
     char cidade1[20] = "";
-    unsigned long int populacao1 = 0;
-    int area1 = 0;
-    float pib1 = 0;
-    int pontos_turisticos1 = 0;
-    unsigned int densidade_pop1 = 0;
-    int renda_percapita1 = 0;
-    float superPoder1 = 0;
+    unsigned int populacao1, densidade_pop1, soma1;
+    int area1, pontos_turisticos1, renda_percapita1;
+    float pib1, superPoder1;
 
     //Carta 2
     char codigo2[5] = "B01";
     char cidade2[20] = "";
-    unsigned long int populacao2 = 0;
-    int area2 = 0;
-    float pib2 = 0;
-    int pontos_turisticos2 = 0;
-    unsigned int densidade_pop2 = 0;
-    int renda_percapita2 = 0;
-    float superPoder2 = 0;
+    unsigned int populacao2, densidade_pop2, soma2;
+    int area2, pontos_turisticos2, renda_percapita2;
+    float pib2, superPoder2;
 
+    //Variáveis utilizadas para comparação.
     int opcao1, opcao2;
 
     //Saudação
@@ -131,78 +124,136 @@ int main() {
     printf("Atributo: ");
     scanf("%d", &opcao2);
 
-    if(opcao1 == 1) {
-        printf("Primeiro atributo seleciondao: População.\n");
-        if(populacao1 > populacao2) {
-            printf("Vitória da Carta1.\n");
-        } else if(populacao2 > populacao1) {
-            printf("Vitória da Carta2.\n");
-        }
-    } else if (opcao1 == 2) {
-        printf("Primeiro atributo selecionado: Área.\n");
-        if(area1 > area2 ) {
-            printf("Vitória da Carta1.\n");
-        } else if(area2 > area1) {
-            printf("Vitória da Carta2.\n");
-        }    
-    } else if (opcao1 == 3) {
-        printf("Primeiro atributo selecionado: PIB.\n");
-        if(pib1 > pib2) {
-            printf("Vitória da Carta1.\n");
-        } else if(pib2 > pib1) {
-            printf("Vitória da Carta2.\n");
-        }
-    } else if(opcao1 == 4) {
-        printf("Primeiro atributo selecionado: Pontos Turísticos.\n");
-        if(pontos_turisticos1 > pontos_turisticos2) {
-            printf("Vitória da Carta1.\n");
-        } else if (pontos_turisticos2 > pontos_turisticos1) {
-            printf("Vitória da Carta2.\n");
-        }
+    if (opcao2 == opcao1) {
+        printf ("Não é possível selecionar o mesmo atributo duas vezes.\n");
     } else {
-        printf("Primeiro atributo selecionado: Densidade demográfica.\n");
-        if(densidade_pop1 > densidade_pop2) {
-            printf("Vitória da Carta1.\n");
-        } else if (densidade_pop2 > densidade_pop1) {
-            printf("Vitória da Carta2.\n");
+        printf("Carta1: Cidade %s\n", cidade1);
+        printf("Carta2: Cidade %s\n", cidade2);
+        if(opcao1 == 1) {
+            printf("Primeiro Atributo escolhido: População.\n");
+        } else if( opcao1 == 2) {
+            printf("Primeiro Atributo escolhido: Área.\n");
+        } else if(opcao1 == 3) {
+            printf("Primeiro Atributo escolhido: PIB.\n");
+        } else if(opcao1 == 4) {
+            printf("Primeiro Atributo escolhido: Pontos Turísticos.\n");
+        } else if (opcao1 == 5) {
+            printf("Primeiro Atributo escolhido: Densidade Demográfica.\n");
+        } else {
+            printf("Opção inválida.");
         }
+        if(opcao2 == 1) {
+            printf("Segundo Atributo escolhido: População.\n");
+        } else if( opcao2 == 2) {
+            printf("Segundo Atributo escolhido: Área.\n");
+        } else if(opcao2 == 3) {
+            printf("Segundo Atributo escolhido: PIB.\n");
+        } else if(opcao2 == 4) {
+            printf("Segundo Atributo escolhido: Pontos Turísticos.\n");
+        } else if (opcao2 == 5) {
+            printf("Segundo Atributo escolhido: Densidade Demográfica.\n");
+        } else {
+            printf("Opção inválida.");
+        }
+        switch (opcao1)
+    {
+    case 1:
+        printf("Carta1: População %u milhões de pessoas.\n", populacao1);
+        printf("Carta2: População %u milhões de pessoas.\n", populacao2);
+        if(opcao2 == 2) {
+            soma1 = populacao1 + area1;
+            soma2 = populacao2 + area2;
+        }else if(opcao2 == 3) {
+            soma1 = populacao1 + pib1;
+            soma2 = populacao2 + pib2;
+        } else if(opcao2 == 4) {
+            soma1 = populacao1 + pontos_turisticos1; 
+            soma2 = populacao2 + pontos_turisticos2;
+        }else {
+            soma1 = populacao1 + densidade_pop1;
+            soma2 = populacao2 + densidade_pop2;
+        }
+        break;
+    case 2:
+        printf("Carta1: Área %d km²\n", area1);
+        printf("Carta2: Área %d km²\n", area2);
+        if(opcao2 == 1) {
+            soma1 = area1 + populacao1;
+            soma2 = area2 + populacao2;
+        }else if(opcao2 == 3) {
+            soma1 = area1 + pib1;
+            soma2 = area2 + pib2;
+        } else if(opcao2 == 4) {
+            soma1 = area1 + pontos_turisticos1;
+            soma2 = area2 + pontos_turisticos2; 
+        }else {
+            soma1 = area1 + densidade_pop1;
+            soma2 = area2 + densidade_pop2;
+        }
+        break;
+    case 3:
+        printf("Carta1: PIB R$ %f.3f\n", pib1);
+        printf("Carta2: PIB R$ %f.3f\n", pib2);
+        if(opcao2 == 2) {
+            soma1 = pib1 + area1;
+            soma2 = pib2 + area2;
+        }else if(opcao2 == 1) {
+            soma1 = populacao1 + pib1;
+            soma2 = populacao2 + pib2;
+        } else if(opcao2 == 4) {
+            soma1 = pib1 + pontos_turisticos1; 
+            soma2 = pib2 + pontos_turisticos2;
+        }else {
+            soma1 = pib1 + densidade_pop1;
+            soma2 = pib2 + densidade_pop2;
+        }
+        break;
+    case 4: 
+        printf("Carta1: Pontos Turísticos: %d\n", pontos_turisticos1);
+        printf("Carta2: Pontos Turísticos: %d\n", pontos_turisticos2);
+        if(opcao2 == 2) {
+            soma1 = pontos_turisticos1 + area1;
+            soma2 = pontos_turisticos2 + area2;
+        }else if(opcao2 == 3) {
+            soma1 = pontos_turisticos1 + pib1;
+            soma2 = pontos_turisticos2 + pib2;
+        } else if(opcao2 == 1) {
+            soma1 = pontos_turisticos1 + populacao1; 
+            soma2 = pontos_turisticos2 + populacao2;
+        }else {
+            soma1 = pontos_turisticos1 + densidade_pop1;
+            soma2 = pontos_turisticos2 + densidade_pop2;
+        }
+        break;
+    case 5:
+        printf("Carta1: Densidade demográfica %u hab/km².\n", densidade_pop1);
+        printf("Carta2: Densidade demográfica %u hab/km².\n", densidade_pop2);
+        if(opcao2 == 1) {
+            soma1 = densidade_pop1 + populacao1;
+            soma2 = densidade_pop2 + populacao2;
+        }else if(opcao2 == 2) {
+            soma1 = densidade_pop1 + area1;
+            soma2 = densidade_pop2 + area2;
+        } else if(opcao2 == 3) {
+            soma1 = densidade_pop1 + pib1;
+            soma2 = densidade_pop2 + pib2; 
+        }else {
+            soma1 = densidade_pop1 + pontos_turisticos1;
+            soma2 = densidade_pop2 + pontos_turisticos2;
+        }
+    default:
+        printf("Opção inválida.");
+        break;
     }
-
-    if(opcao2 == 1 ) {
-        printf("Segundo atributo selecionado: População.\n");
-        if(populacao2 > populacao1) {
-            printf("Vitória da Carta2.\n");
-        } else {
-            printf("Vitória da Carta1.\n");
-        }
-    } else if(opcao2 == 2) {
-        printf("Segundo atributo selecionado: Área.\n");
-       if(area2 > area1) {
-            printf("Vitória da Carta2.\n");
-       } else {
+    }
+    printf("A soma dos atributos da Carta1 é: %d.\n", soma1);
+    printf("A soma dos Atributos da Carta2 é: %d.\n", soma2);
+    if(soma1 > soma2) {
         printf("Vitória da Carta1.\n");
-       }
-    }else if(opcao2 == 3) {
-        printf("Segundo atributo selecionado: PIB.\n");
-        if(pib2 > pib1) {
-            printf("Vitória da Carta2.\n");
-        } else {
-            printf("Vitória da Carta1.\n");
-        }
-    }else if(opcao2 == 4) {
-        printf("Segundo atributo selecionado: Pontos Turísticos.\n");
-        if(pontos_turisticos2 > pontos_turisticos1) {
-            printf("Vitória da Carta2.\n");
-        }else {
-            printf("Vitória da Carta1.\n");
-        }   
-    }else {
-        printf("Segundo atributo selecionado: Densidade Demográfica.\n");
-        if(densidade_pop2 > densidade_pop1) {
-            printf("Vitória da Carta2.\n");
-        }else {
-            printf("Vitória da Carta1.\n");
-        }
+    } else if( soma1 < soma2) {
+        printf("Vitória da Carta2.\n");
+    } else {
+        printf("Houve empate.\n");
     }
 
     return 0;
